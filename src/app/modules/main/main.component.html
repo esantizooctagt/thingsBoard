@@ -1,0 +1,54 @@
+<ng-container *ngIf="sleep$ | async"></ng-container>
+<ng-container *ngIf="data$ | async"></ng-container>
+
+<div class="container">
+    <mat-grid-list cols="4" rowHeight="275px">
+        <mat-grid-tile colspan="2" rowspan="2">
+            <div class="">
+                <mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="PH">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> pH </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.PH}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="LOTE">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Lote </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.LOTE}} </mat-cell>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="BOTTLES">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Botellas </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.BOTTLES}} </mat-cell>
+                    </ng-container>
+                
+                    <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator #paginator
+                    [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions">
+                </mat-paginator>
+            </div>
+            <mat-grid-tile-header>
+                <h3>Registro de Lote</h3>
+            </mat-grid-tile-header>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="2">
+            <ng-container *ngIf="valpH$ | async"></ng-container>
+            <img src="../../../assets/milk.png">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="w-100">
+                <h2>Tomando pH:</h2>
+                <h3 *ngIf="midpH"> {{ val | number:'1.1-2'}}</h3>
+                <h3 *ngIf="!midpH"> ...</h3>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div class="w-100">
+                <h2>Producción: </h2>
+                <h3 class="">{{prodValue}}</h3>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

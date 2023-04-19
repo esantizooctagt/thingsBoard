@@ -1,0 +1,24 @@
+mat-grid-tile {
+    // background: lightblue;
+    border: 1px solid lightblue;
+}
+mat-grid-tile-header{
+    font-size: 35px;
+    font-weight: 600;
+    font-family: Motserrat, sans-serif;
+}
+mat-header-cell{
+    font-weight: 600;
+    color: darkblue;
+    font-family: Motserrat, sans-serif;
+}
+.container{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 100%;
+}
+.w-100{
+    text-align: center;
+}
