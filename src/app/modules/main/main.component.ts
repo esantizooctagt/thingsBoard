@@ -40,7 +40,7 @@ export class MainComponent implements OnInit, AfterViewInit{
     let frm = {};
     
     this.midpH = true;
-    this.valpH$ = of(Math.round(this.randomRange(5.01, 9.01) * 100) / 100).pipe(
+    this.valpH$ = of(Math.round(this.randomRange(5.51, 8.71) * 100) / 100).pipe(
       map(x => {
         this.val = x;
         this.prodValue = this.prodValue+this.increment;

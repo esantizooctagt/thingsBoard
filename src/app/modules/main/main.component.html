@@ -18,11 +18,11 @@
                 
                     <ng-container matColumnDef="BOTTLES">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Botellas </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.BOTTLES}} </mat-cell>
+                        <mat-cell *matCellDef="let element"> {{element.BOTTLES }} </mat-cell>
                     </ng-container>
                 
                     <mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></mat-header-row>
-                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    <mat-row [ngClass]="{'invalid': row.INVALID == '1'}" *matRowDef="let row; columns: displayedColumns;"></mat-row>
                 </mat-table>
                 <mat-paginator #paginator
                     [pageSize]="pageSize"
